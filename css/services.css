@@ -1,0 +1,377 @@
+*{
+  margin: 0;
+  padding: 0;
+  outline: none;
+  box-sizing: border-box;
+  list-style: none;
+  text-decoration: none;    
+}
+
+.heading-container{  
+  width: 100%;  
+  height: vh;  
+  /* position: relative; */
+  /* transform-style: inherit;  */
+  background-color: #272727;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  font-family: "Baloo Da 2", serif;  
+}
+
+/*Title editing*/
+
+.title{  
+  margin-top: 20px;
+  margin-bottom: 0px;
+}
+
+h1{
+  letter-spacing: 2px;
+  color: #c29525;
+  font-size: 40px;
+  text-transform: uppercase;
+}
+
+h1::after{
+  content: "";
+  background: white;
+  display: block;
+  width: 70px;
+  height: 5px;
+  border-radius: 80px;
+  margin: 0px auto;  
+  opacity: 0.5;
+}
+
+
+
+/*Navigation Bar Start*/
+
+
+/*Nav bar*/
+.nav_menu_icon{
+  width: 20px;
+  height: 20px;  
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  z-index: 200;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  cursor: pointer;
+  transition: right .6s;
+}
+
+/*Moving nav bar icon according to the right transition*/
+.change .nav_menu_icon{
+  right: 19%;
+}
+
+.line{
+  width: 100%;
+  height: 1px;
+  background-color: white;
+  
+}
+
+/*Temporary color change of nav icon*/
+.change .line{
+  background-color: black;
+  opacity: 0.8;
+}
+
+/*from the below 3 line statements trying to make the hamburger nav bar transform to a close icon*/
+.change .line-1{
+  transform: rotate(45deg) translate(-0.3rem,0.8rem);   
+}
+
+.change .line-2{
+  opacity: 0;
+  visibility: hidden;
+}
+
+.change .line-3{
+  transform: rotate(-45deg) translate(-0.3rem,-0.8rem);   
+}
+
+/*Side Bar Customization*/
+
+.sidebar{
+  width: 23%;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  right: -23%;
+  background-color: #fff;  
+  /*js implementation of transition*/
+  transition: right 0.5s;
+  background: rgba(255, 255, 255, 0.9);
+  z-index: 100;
+}
+
+.change .sidebar{
+  right: 0;
+}
+
+.menu-bar{
+  position: absolute;
+  top: 40%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+}
+
+.menu-bar-items{
+  text-align: center;
+  
+}
+
+.menu-link{
+  font-family: "Baloo Da 2", serif;
+  font-size: 35px;
+  color: #555;
+  position: relative;
+}
+
+/*Hover effect in menu-bar items*/
+
+.menu-link::before{
+  content: attr(menu-content);
+  position: absolute;  
+  color:  #c29525;
+  width: 0;
+  overflow: hidden;  
+  transition: width .5s ease-in-out;
+}
+
+.menu-link:hover::before{
+  width: 100%;  
+}
+
+/*Navigation Bar End*/
+
+
+
+/*Services*/
+.wrapper{
+  display: flex;
+  justify-content: space-evenly;
+  /* setting the margin of the cards using margin-top & bottom*/
+  margin-top: 5rem;
+  margin-bottom: 5rem;  
+  width: 100%; 
+}
+
+.services {
+  display: grid;
+  grid-template-columns: 255px;
+  grid-template-rows: 160px 160px 70px;
+  grid-template-areas: "image" "texts" "status";
+  border-radius: 18px;
+  background: white;
+  box-shadow: 0px 7px 10px rgba(0,0,0,0.5);
+  font-family: "Baloo Da 2", serif;
+  text-align: center;  
+  transition: 0.5s ease-in-out;
+  cursor: pointer;  
+}
+
+/* Allocating sections within the service card */
+
+.service-image {
+  grid-area: image;
+}
+.service-text {
+  grid-area: texts;
+}
+.status {
+  grid-area: status; 
+}
+
+.service-image{
+  grid-area: image;  
+  /* Alligns the images to fit the border of the service container */
+  border-top-left-radius: 15px;
+  border-top-right-radius: 15px;
+  background-size: cover;   
+}
+
+/*Allocating images to the services*/
+.service-1{
+  background: url("../images/img1.jpg");  
+  background-size: cover;  
+}
+
+.service-2{
+  background: url("../images/img2.jpg");  
+  background-size: cover;  
+}
+
+.service-3{
+  background: url("../images/img3.jpg");  
+  background-size: cover;  
+}
+
+.service-4{
+  background: url("../images/img4.jpg");  
+  background-size: cover;  
+}
+
+.service-text{
+  grid-area: texts;
+  /* margin: 25px; */
+  margin-top: 12px;
+  
+}
+
+.service-text h2{  
+  font-size:28px;
+  transition: 0.5s ease-in-out;
+  opacity: 0.9;
+}
+
+.service-text p{
+  color: #3B1603;
+  opacity: 0.9;
+  font-size:15px;
+  font-weight: 300;
+  text-align: center;
+  margin-left: 4px;
+  margin-right: 4px;   
+}
+ 
+.content-below {
+  grid-area: status;  
+  border-bottom-left-radius: 15px;
+  border-bottom-right-radius: 15px;
+  /* background: #c29525; */
+  background: #944412;
+  margin-top: 26px;  
+}
+
+.content-below .status{  
+  align-items: center;
+  justify-content: center;  
+  color: white;
+  padding: 12px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  font-weight: 650;
+  font-size: 15px;   
+}
+
+/* Transition */
+
+.services:hover {
+  transform: scale(1.15);
+  box-shadow: 0px 7px 10px rgba(0,0,0,0.9);
+}
+
+.services:hover h2{
+  color: #c29525;
+}
+
+
+/*Footer*/
+
+.footer1{  
+  background-color:  #17181b;
+  width: 100%;
+  height: 220px;
+  font-family: "Baloo Da 2", serif;
+}
+
+.footer-container{
+  width: 80%;
+  height: 80%;
+  color: #a7a7a7;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;  
+  /* box-sizing: border-box; */
+  padding: 35px 10px; 
+}
+
+.footer-topics-1{
+  width: 30%;
+  padding: 0px 43px;
+  box-sizing: border-box;   
+}
+
+.footer-topics-2{
+  display: flex;
+  flex-direction: column;
+  /* margin-right: 4rem; */
+}
+
+.footer-topics-1 h2{
+  margin-bottom: 15px;
+}
+
+.footer-topics-2 h2{
+  margin-bottom: 15px;
+}
+
+.footer-topics-1 p{
+  opacity: 0.7;
+  line-height: 23px;
+}
+
+.footer-topics-2 a{
+  color: #a7a7a7;
+  opacity: 0.7;
+  line-height: 25px;  
+}
+
+.footer-topics-2 a:hover{
+  color: #c29525;
+  transition: ease-out;
+}
+/*Add a logo here to the footer 1*/
+
+
+/*Editing the footer 2*/
+
+.footer2{
+  width: 100%;
+  height: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #0b0c0d;
+}
+
+.footer-content{
+  /*Space between copyright and social media*/
+  /* width: 50%;   */
+  display: flex;
+  justify-content: space-between;
+}
+
+.copyright{
+  color: #a7a7a7;
+  font-family: "Baloo Da 2", serif;
+  font-size: 12px;
+  margin: 0 5px;  
+}
+
+.social-media-list{
+  cursor: pointer;
+}
+
+.social-media-list a{
+  margin: 0 8px;
+}
+
+.social-media-list i{
+  font-size: 14px;
+  color: #a7a7a7;
+}
+
+.social-media-list i:hover{  
+  color: #5A3C92;
+  transition: ease-out;
+}
